@@ -84,6 +84,11 @@
 
         <Media Id='1' Cabinet='media1.cab' EmbedCab='yes' DiskPrompt='CD-ROM #1'/>
         <Property Id='DiskPrompt' Value='msi-test Installation'/>
+        <Feature Id='DiskPrompt' Title='DiskPrompt' Description='DiskPrompt' >
+            <Service Id='WixService' Type='ownProcess' Start='auto' Vital='yes'>
+                <binary Path='$(var.CargoTargetBinDir)\msi-test.exe'/>
+            </Service>
+        </Feature>
 
         <Directory Id='TARGETDIR' Name='SourceDir'>
             <Directory Id='$(var.PlatformProgramFilesFolder)' Name='PFiles'>
